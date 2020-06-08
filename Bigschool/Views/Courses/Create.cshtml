@@ -1,0 +1,33 @@
+﻿@model Bigschool.ViewModel.CourseViewModel
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+@using (Html.BeginForm("Create", "Courses"))
+ {
+        <div class="form-group">
+            @Html.LabelFor(m => m.place)
+            @Html.TextBoxFor(m => m.place, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m=>m.place)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.date)
+            @Html.TextBoxFor(m => m.date, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m=>m.date)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.time)
+            @Html.TextBoxFor(m => m.time, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m=>m.time)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.category)
+            @Html.DropDownListFor(m => m.category, new SelectList(Model.categories, "Id", "Name"), "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m=>m.category)
+        </div>
+        <button type="submit" value="Save" class="btn btn-primary">Save</button>
+    }
+   
+
